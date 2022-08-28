@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "Mock Lambda Test Tool": {
+    "Lambda Test Tool": {
       "commandName": "Executable",
       "commandLineArgs": "--port 5050",
       "workingDirectory": ".\\bin\\$(Configuration)\\net6.0",

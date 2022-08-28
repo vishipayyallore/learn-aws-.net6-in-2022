@@ -11,7 +11,7 @@
     "configuration" : "Release",
     "function-runtime" : "dotnet6",
     "function-memory-size" : 128,
-    "function-timeout"     : 3,
+    "function-timeout"     : 30,
     "function-handler"     : "SayHello::SayHello.Function::FunctionHandler",
     "framework"            : "net6.0",
     "function-name"        : "SayHelloNET6",
@@ -21,7 +21,7 @@
     "function-architecture" : "x86_64",
     "function-subnets"      : "",
     "function-security-groups" : "",
-    "tracing-mode"             : "PassThrough",
+    "tracing-mode"             : "Active",
     "environment-variables"    : "",
     "image-tag"                : ""
 }
