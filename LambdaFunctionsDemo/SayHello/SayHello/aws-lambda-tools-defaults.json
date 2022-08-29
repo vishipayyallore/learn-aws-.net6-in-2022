@@ -17,7 +17,7 @@
     "function-name"        : "SayHelloNET6",
     "function-description" : "",
     "package-type"         : "Zip",
-    "function-role"        : "arn:aws:iam::683810972057:role/service-role/FirstLambdaFunction-role-vmjbnp6k",
+    "function-role"        : "YourFunctionIAMRole",
     "function-architecture" : "x86_64",
     "function-subnets"      : "",
     "function-security-groups" : "",
