@@ -17,7 +17,7 @@ public class EmployeeLambda
     /// <param name="input"></param>
     /// <param name="context"></param>
     /// <returns></returns>
-    public async Task<EmployeeDto> EmployeeHandler(EmployeeRequestDto employeeRequestDto, ILambdaContext context)
+    public async Task<EmployeeResponseDto> EmployeeHandler(EmployeeRequestDto employeeRequestDto, ILambdaContext context)
     {
         context.Logger.LogDebug($"Received the request with Employee Id {employeeRequestDto.employeeId}.");
 
@@ -26,7 +26,21 @@ public class EmployeeLambda
 
         context.Logger.LogDebug($"Sending the response for Employee Id {employeeRequestDto.employeeId}.");
 
-        return employeeDto;
+        EmployeeResponseDto employeeResponseDto = GenerateEmployeeResponseDto(employeeDto);
+
+        return employeeResponseDto;
     }
 
+    private static EmployeeResponseDto GenerateEmployeeResponseDto(EmployeeDto employeeDto)
+    {
+        EmployeeResponseDto employeeResponseDto = new();
+        if (employeeDto != null)
+        {
+            employeeResponseDto.Success = true;
+            employeeResponseDto.Message = "Record Found";
+            employeeResponseDto.Employee = employeeDto;
+        }
+
+        return employeeResponseDto;
+    }
 }
