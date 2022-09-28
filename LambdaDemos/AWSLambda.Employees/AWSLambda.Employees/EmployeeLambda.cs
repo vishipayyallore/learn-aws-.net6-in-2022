@@ -17,14 +17,14 @@ public class EmployeeLambda
     /// <param name="input"></param>
     /// <param name="context"></param>
     /// <returns></returns>
-    public async Task<EmployeeDto> EmployeeHandler(string employeeId, ILambdaContext context)
+    public async Task<EmployeeDto> EmployeeHandler(EmployeeRequestDto employeeRequestDto, ILambdaContext context)
     {
-        context.Logger.LogDebug($"Received the request with Employee Id {employeeId}.");
+        context.Logger.LogDebug($"Received the request with Employee Id {employeeRequestDto.employeeId}.");
 
         var _dynamoDbContext = new DynamoDBContext(new AmazonDynamoDBClient());
-        EmployeeDto employeeDto = await _dynamoDbContext.LoadAsync<EmployeeDto>(employeeId);
+        EmployeeDto employeeDto = await _dynamoDbContext.LoadAsync<EmployeeDto>(employeeRequestDto.employeeId);
 
-        context.Logger.LogDebug($"Sending the response for Employee Id {employeeId}.");
+        context.Logger.LogDebug($"Sending the response for Employee Id {employeeRequestDto.employeeId}.");
 
         return employeeDto;
     }
