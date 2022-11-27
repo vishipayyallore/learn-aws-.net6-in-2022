@@ -8,38 +8,52 @@
     "GetEmployeeByIdHandler" : {
       "Type" : "AWS::Serverless::Function",
       "Properties": {
+        "Architectures": [
+          "x86_64"
+        ],
         "Handler": "EmployeesCRUD::EmployeesCRUD.Employees::GetEmployeeByIdHandler",
         "Description": "Get Employee By Id Handler function",
+        "Runtime": "dotnet6",
+        "CodeUri": "",
         "MemorySize": 256,
         "Timeout": 30,
+        "Role": null,
         "Policies": [ "AWSLambda_FullAccess" ]
       }
     },
     "GetAllEmployeesHandler" : {
       "Type" : "AWS::Serverless::Function",
       "Properties": {
+        "Architectures": [
+          "x86_64"
+        ],
         "Handler": "EmployeesCRUD::EmployeesCRUD.Employees::GetAllEmployeesHandler",
         "Description": "Get All Employees Handler function",
+        "Runtime": "dotnet6",
+        "CodeUri": "",
         "MemorySize": 256,
         "Timeout": 30,
+        "Role": null,
         "Policies": [ "AWSLambda_FullAccess" ]
       }
     },
     "PostEmployeeHandler" : {
       "Type" : "AWS::Serverless::Function",
       "Properties": {
+        "Architectures": [
+          "x86_64"
+        ],
         "Handler": "EmployeesCRUD::EmployeesCRUD.Employees::PostEmployeeHandler",
-        "Description": "Create a New Employees Handler function",
+        "Description": "Create New Employees Handler function",
+        "Runtime": "dotnet6",
+        "CodeUri": "",
         "MemorySize": 256,
         "Timeout": 30,
+        "Role": null,
         "Policies": [ "AWSLambda_FullAccess" ]
       }
     }
   },
   "Outputs" : {
-    "ApiURL" : {
-        "Description" : "API endpoint URL for Prod environment",
-        "Value" : { "Fn::Sub" : "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/" }
-    }
   }
 }
