@@ -1,5 +1,6 @@
 using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.DataModel;
+using Amazon.DynamoDBv2.DocumentModel;
 using Amazon.Lambda.Core;
 using EmployeesCRUD.Models;
 
@@ -42,9 +43,24 @@ public class Employees
         return employeeResponseDto;
     }
 
-    public string GetAllEmployeesHandler(ILambdaContext context)
+    public async Task<IEnumerable<EmployeeDto>> GetAllEmployeesHandler(ILambdaContext context)
     {
-        return "All Employees";
+        context.Logger.LogDebug($"Received the request for Get All Employees.");
+
+        var _dynamoDbContext = new DynamoDBContext(new AmazonDynamoDBClient());
+
+        // Get the Table ref from the Model
+        var table = _dynamoDbContext.GetTargetTable<EmployeeDto>();
+
+        var scanOps = new ScanOperationConfig();
+
+        // returns the set of Document objects for the supplied ScanOptions
+        var results = table.Scan(scanOps);
+        List<Document> productsData = await results.GetNextSetAsync();
+
+        IEnumerable<EmployeeDto> allEmployees = _dynamoDbContext.FromDocuments<EmployeeDto>(productsData);
+
+        return allEmployees;
     }
 
     public async Task<EmployeeResponseDto> PostEmployeeHandler(EmployeeRequestDto employeeRequestDto, ILambdaContext context)
