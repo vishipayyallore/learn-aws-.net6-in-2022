@@ -1,0 +1,35 @@
+{
+  "AWSTemplateFormatVersion" : "2010-09-09",
+  "Transform" : "AWS::Serverless-2016-10-31",
+  "Description" : "Starting template for an AWS Serverless Application.",
+  "Parameters" : {
+  },
+  "Resources" : {
+    "GetEmployeeByIdHandler" : {
+      "Type" : "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "EmployeesCRUD::EmployeesCRUD.Employees::GetEmployeeByIdHandler",
+        "Description": "Get Employee By Id Handler function",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Policies": [ "AWSLambda_FullAccess" ]
+      }
+    },
+    "GetAllEmployeesHandler" : {
+      "Type" : "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "EmployeesCRUD::EmployeesCRUD.Employees::GetAllEmployeesHandler",
+        "Description": "Get All Employees Handler function",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Policies": [ "AWSLambda_FullAccess" ]
+      }
+    }
+  },
+  "Outputs" : {
+    "ApiURL" : {
+        "Description" : "API endpoint URL for Prod environment",
+        "Value" : { "Fn::Sub" : "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/" }
+    }
+  }
+}
