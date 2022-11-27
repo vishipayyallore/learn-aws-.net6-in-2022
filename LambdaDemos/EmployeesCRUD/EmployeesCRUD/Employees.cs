@@ -63,27 +63,28 @@ public class Employees
         return allEmployees;
     }
 
-    public async Task<EmployeeResponseDto> PostEmployeeHandler(EmployeeRequestDto employeeRequestDto, ILambdaContext context)
+    public async Task<EmployeeResponseDto> PostEmployeeHandler(EmployeeDto newEmployeeRequestDto, ILambdaContext context)
     {
-        context.Logger.LogDebug($"Received the request with Employee Id {employeeRequestDto.employeeId}.");
+        context.Logger.LogDebug($"Received the request with Employee Id {newEmployeeRequestDto.employeeId} to create new.");
 
         var _dynamoDbContext = new DynamoDBContext(new AmazonDynamoDBClient());
-        EmployeeDto employeeDto = await _dynamoDbContext.LoadAsync<EmployeeDto>(employeeRequestDto.employeeId);
 
-        context.Logger.LogDebug($"Sending the response for Employee Id {employeeRequestDto.employeeId}.");
+        await _dynamoDbContext.SaveAsync(newEmployeeRequestDto);
 
-        EmployeeResponseDto employeeResponseDto = GenerateEmployeeResponseDto(employeeDto);
+        context.Logger.LogDebug($"Sending the response for New Employee Id {newEmployeeRequestDto.employeeId}.");
+
+        EmployeeResponseDto employeeResponseDto = GenerateEmployeeResponseDto(newEmployeeRequestDto, "New Employee Created");
 
         return employeeResponseDto;
     }
 
-    private static EmployeeResponseDto GenerateEmployeeResponseDto(EmployeeDto employeeDto)
+    private static EmployeeResponseDto GenerateEmployeeResponseDto(EmployeeDto employeeDto, string message = "Record Found")
     {
         EmployeeResponseDto employeeResponseDto = new();
         if (employeeDto != null)
         {
             employeeResponseDto.Success = true;
-            employeeResponseDto.Message = "Record Found";
+            employeeResponseDto.Message = message;
             employeeResponseDto.Employee = employeeDto;
         }
 
@@ -91,17 +92,3 @@ public class Employees
     }
 
 }
-
-
-//private static EmployeeResponseDto GenerateEmployeeResponseDto(EmployeeDto employeeDto)
-//{
-//    EmployeeResponseDto employeeResponseDto = new();
-//    if (employeeDto != null)
-//    {
-//        employeeResponseDto.Success = true;
-//        employeeResponseDto.Message = "Record Found";
-//        employeeResponseDto.Employee = employeeDto;
-//    }
-
-//    return employeeResponseDto;
-//}

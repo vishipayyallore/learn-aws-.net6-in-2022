@@ -24,6 +24,16 @@
         "Timeout": 30,
         "Policies": [ "AWSLambda_FullAccess" ]
       }
+    },
+    "PostEmployeeHandler" : {
+      "Type" : "AWS::Serverless::Function",
+      "Properties": {
+        "Handler": "EmployeesCRUD::EmployeesCRUD.Employees::PostEmployeeHandler",
+        "Description": "Create a New Employees Handler function",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Policies": [ "AWSLambda_FullAccess" ]
+      }
     }
   },
   "Outputs" : {
