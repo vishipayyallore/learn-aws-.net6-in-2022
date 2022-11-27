@@ -17,9 +17,29 @@ public class Employees
     /// <param name="input"></param>
     /// <param name="context"></param>
     /// <returns></returns>
-    public string GetEmployeeByIdHandler(string input, ILambdaContext context)
+    public async Task<EmployeeResponseDto> GetEmployeeByIdHandler(string employeeId, ILambdaContext context)
     {
-        return input.ToUpper();
+        EmployeeResponseDto employeeResponseDto = new();
+
+        if (string.IsNullOrEmpty(employeeId))
+        {
+            context.Logger.LogDebug($"Did NOT receive the valid request for Employee.");
+
+            employeeResponseDto.Message = "Received Invalid Employee Id";
+
+            return employeeResponseDto;
+        }
+
+        context.Logger.LogDebug($"Received the request with Employee Id {employeeId}.");
+
+        var _dynamoDbContext = new DynamoDBContext(new AmazonDynamoDBClient());
+        EmployeeDto employeeDto = await _dynamoDbContext.LoadAsync<EmployeeDto>(employeeId);
+
+        context.Logger.LogDebug($"Sending the response for Employee Id {employeeId}.");
+
+        employeeResponseDto = GenerateEmployeeResponseDto(employeeDto);
+
+        return employeeResponseDto;
     }
 
     public string GetAllEmployeesHandler(ILambdaContext context)
@@ -55,3 +75,17 @@ public class Employees
     }
 
 }
+
+
+//private static EmployeeResponseDto GenerateEmployeeResponseDto(EmployeeDto employeeDto)
+//{
+//    EmployeeResponseDto employeeResponseDto = new();
+//    if (employeeDto != null)
+//    {
+//        employeeResponseDto.Success = true;
+//        employeeResponseDto.Message = "Record Found";
+//        employeeResponseDto.Employee = employeeDto;
+//    }
+
+//    return employeeResponseDto;
+//}
