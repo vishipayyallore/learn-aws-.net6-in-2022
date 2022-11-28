@@ -1,0 +1,12 @@
+{
+  "body": "{\"test\":\"body\"}",
+  "resource": "/{employeeId+}",
+  "path": "/employees/E1011",
+  "httpMethod": "GET",
+  "queryStringParameters": {
+    "foo": "bar"
+  },
+  "pathParameters": {
+    "employeeId": "E1011"
+  }
+}
