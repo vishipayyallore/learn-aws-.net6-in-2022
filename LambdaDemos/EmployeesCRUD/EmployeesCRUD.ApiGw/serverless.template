@@ -5,33 +5,23 @@
   "Parameters" : {
   },
   "Resources" : {
-    "DefaultFunction" : {
+    "GetEmployeeByIdHandler" : {
       "Type" : "AWS::Serverless::Function",
       "Properties": {
-        "Handler": "<ASSEMBLY-NAME>::<TYPE-FULL-NAME>::<METHOD-NAME>",
-        "Runtime": "dotnetcore2.1",
+        "Architectures": [
+          "x86_64"
+        ],
+        "Handler": "EmployeesCRUD.ApiGw::EmployeesCRUD.ApiGw.EmployeesApiGw::GetEmployeeByIdHandler",
+        "Description": "Get Employee By Id Handler function",
+        "Runtime": "dotnet6",
         "CodeUri": "",
-        "Description": "Default function",
         "MemorySize": 256,
         "Timeout": 30,
         "Role": null,
-        "Policies": [ "AWSLambda_FullAccess" ],
-        "Events": {
-          "ProxyResource": {
-            "Type": "Api",
-            "Properties": {
-              "Path": "/{proxy+}",
-              "Method": "ANY"
-            }
-          }
-        }
+        "Policies": [ "AWSLambda_FullAccess" ]
       }
     }
   },
   "Outputs" : {
-    "ApiURL" : {
-        "Description" : "API endpoint URL for Prod environment",
-        "Value" : { "Fn::Sub" : "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/" }
-    }
   }
 }

@@ -8,9 +8,11 @@
   "profile": "default",
   "region": "us-west-2",
   "configuration": "Release",
+  "s3-prefix": "EmployeesCrudApiGw/",
   "function-architecture": "x86_64",
   "function-runtime": "dotnet6",
-  "function-memory-size": 256,
-  "function-timeout": 30,
-  "function-handler": "EmployeesCRUD.ApiGw::EmployeesCRUD.ApiGw.EmployeesApiGw::GetEmployeeByIdHandler"
+  "template": "serverless.template",
+  "template-parameters": "",
+  "s3-bucket": "employeescrudapigwbucket",
+  "stack-name": "employeedemoapigw"
 }
