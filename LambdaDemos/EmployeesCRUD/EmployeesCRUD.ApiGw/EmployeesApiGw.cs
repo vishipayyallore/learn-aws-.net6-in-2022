@@ -1,8 +1,4 @@
-using Amazon.DynamoDBv2.DataModel;
-using Amazon.DynamoDBv2;
-using Amazon.Lambda.APIGatewayEvents;
 using Amazon.Lambda.Core;
-using System.Text.Json;
 
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.SystemTextJson.DefaultLambdaJsonSerializer))]
@@ -11,7 +7,7 @@ namespace EmployeesCRUD.ApiGw;
 
 public class EmployeesApiGw
 {
-    
+
     /// <summary>
     /// A simple function that takes a string and does a ToUpper
     /// </summary>

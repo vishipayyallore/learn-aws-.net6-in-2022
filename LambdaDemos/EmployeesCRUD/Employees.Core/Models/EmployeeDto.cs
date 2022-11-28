@@ -1,7 +1,7 @@
 ﻿using Amazon.DynamoDBv2.DataModel;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace EmployeesCRUD.Models
+namespace Employees.Core.Models
 {
     [DynamoDBTable("employees")]
     public class EmployeeDto
