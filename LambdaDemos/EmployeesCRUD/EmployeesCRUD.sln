@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeesCRUD", "EmployeesC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeesCrudServerless", "EmployeesCrudServerless\EmployeesCrudServerless.csproj", "{9BD0B787-5128-452A-BBD4-54DDB82E25B4}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeesCRUD.ApiGw", "EmployeesCRUD.ApiGw\EmployeesCRUD.ApiGw.csproj", "{ACD898AD-0CA3-4876-927C-3805E5CBCE8D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{9BD0B787-5128-452A-BBD4-54DDB82E25B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BD0B787-5128-452A-BBD4-54DDB82E25B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BD0B787-5128-452A-BBD4-54DDB82E25B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACD898AD-0CA3-4876-927C-3805E5CBCE8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACD898AD-0CA3-4876-927C-3805E5CBCE8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACD898AD-0CA3-4876-927C-3805E5CBCE8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACD898AD-0CA3-4876-927C-3805E5CBCE8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
