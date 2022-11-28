@@ -2,6 +2,7 @@ using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.DataModel;
 using Amazon.DynamoDBv2.DocumentModel;
 using Amazon.Lambda.Core;
+using Employees.Core.Models;
 
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.SystemTextJson.DefaultLambdaJsonSerializer))]
@@ -80,7 +81,8 @@ public class Employees
     private static EmployeeResponseDto GenerateEmployeeResponseDto(EmployeeDto employeeDto, string message = "Record Found")
     {
         EmployeeResponseDto employeeResponseDto = new();
-        if (employeeDto != null)
+
+        if (employeeDto is not null)
         {
             employeeResponseDto.Success = true;
             employeeResponseDto.Message = message;
