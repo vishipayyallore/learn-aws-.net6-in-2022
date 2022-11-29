@@ -1,4 +1,4 @@
-﻿namespace EmployeesCRUD.Models
+﻿namespace Employees.Core.Models
 {
 
     public class EmployeeResponseDto
