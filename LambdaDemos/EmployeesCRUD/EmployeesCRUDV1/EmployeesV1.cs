@@ -7,9 +7,9 @@ using Employees.Core.Models;
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.SystemTextJson.DefaultLambdaJsonSerializer))]
 
-namespace EmployeesCRUD;
+namespace EmployeesCRUDV1;
 
-public class Employees
+public class EmployeesV1
 {
 
     public async Task<EmployeeResponseDto> GetEmployeeByIdHandler(string employeeId, ILambdaContext context)
@@ -85,5 +85,4 @@ public class Employees
 
         return employeeResponseDto;
     }
-
 }
