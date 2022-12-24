@@ -1,0 +1,27 @@
+{
+  "AWSTemplateFormatVersion" : "2010-09-09",
+  "Transform" : "AWS::Serverless-2016-10-31",
+  "Description" : "Starting template for an AWS Serverless Application.",
+  "Parameters" : {
+  },
+  "Resources" : {
+    "GetEmployeeByIdHandler" : {
+      "Type" : "AWS::Serverless::Function",
+      "Properties": {
+        "Architectures": [
+          "x86_64"
+        ],
+        "Handler": "EmployeesCRUD.ApiGwV1::EmployeesCRUD.ApiGwV1.EmployeesApiGwV1::GetEmployeeByIdHandler",
+        "Description": "Get Employee By Id Handler function",
+        "Runtime": "dotnet6",
+        "CodeUri": "",
+        "MemorySize": 256,
+        "Timeout": 30,
+        "Role": null,
+        "Policies": [ "AWSLambda_FullAccess" ]
+      }
+    }
+  },
+  "Outputs" : {
+  }
+}
