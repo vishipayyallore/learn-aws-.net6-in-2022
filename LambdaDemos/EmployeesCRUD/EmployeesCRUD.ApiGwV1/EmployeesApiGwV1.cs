@@ -8,9 +8,9 @@ using System.Text.Json;
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.SystemTextJson.DefaultLambdaJsonSerializer))]
 
-namespace EmployeesCRUD.ApiGw;
+namespace EmployeesCRUD.ApiGwV1;
 
-public class EmployeesApiGw
+public class EmployeesApiGwV1
 {
 
     public async Task<APIGatewayProxyResponse> GetEmployeeByIdHandler(APIGatewayProxyRequest apiGatewayProxyRequest, ILambdaContext context)

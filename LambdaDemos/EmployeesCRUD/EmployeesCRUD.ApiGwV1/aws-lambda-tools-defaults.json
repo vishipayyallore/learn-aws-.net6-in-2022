@@ -9,11 +9,11 @@
     "profile"     : "default",
     "region"      : "us-west-2",
     "configuration" : "Release",
-    "s3-prefix"     : "EmployeesCrud/",
+    "s3-prefix"     : "EmployeesCrudApiGwV1/",
     "function-architecture" : "x86_64",
     "function-runtime"      : "dotnet6",
     "template"              : "serverless.template",
     "template-parameters"   : "",
-    "s3-bucket"             : "employeescrudbucket",
-    "stack-name"            : "employeedemo24dec2022"
+    "s3-bucket"             : "employeescrudapigwbucketv1",
+    "stack-name"            : "employeedemoapigwv1"
 }
