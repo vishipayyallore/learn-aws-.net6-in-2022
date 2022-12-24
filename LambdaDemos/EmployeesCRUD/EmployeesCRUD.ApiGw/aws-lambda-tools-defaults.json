@@ -15,5 +15,5 @@
     "template"              : "serverless.template",
     "template-parameters"   : "",
     "s3-bucket"             : "employeescrudapigwbucket",
-    "stack-name"            : "employeedemoapigw"
+    "stack-name"            : "employeedemoapigw24dec2022"
 }

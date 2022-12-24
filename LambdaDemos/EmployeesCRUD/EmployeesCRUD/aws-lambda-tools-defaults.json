@@ -1,3 +1,4 @@
+
 {
     "Information" : [
         "This file provides default values for the deployment wizard inside Visual Studio and the AWS Lambda commands added to the .NET Core CLI.",
@@ -14,5 +15,5 @@
     "template"              : "serverless.template",
     "template-parameters"   : "",
     "s3-bucket"             : "employeescrudbucket",
-    "stack-name"            : "employeedemo"
+    "stack-name"            : "employeedemo24dec2022"
 }
