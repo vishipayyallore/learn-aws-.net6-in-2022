@@ -7,7 +7,7 @@ using Amazon.S3;
 
 namespace Employees.S3Trigger;
 
-public class Function
+public class EmployeesS3Trigger
 {
     IAmazonS3 S3Client { get; set; }
 
@@ -16,7 +16,7 @@ public class Function
     /// the AWS credentials will come from the IAM role associated with the function and the AWS region will be set to the
     /// region the Lambda function is executed in.
     /// </summary>
-    public Function()
+    public EmployeesS3Trigger()
     {
         S3Client = new AmazonS3Client();
     }
@@ -25,7 +25,7 @@ public class Function
     /// Constructs an instance with a preconfigured S3 client. This can be used for testing outside of the Lambda environment.
     /// </summary>
     /// <param name="s3Client"></param>
-    public Function(IAmazonS3 s3Client)
+    public EmployeesS3Trigger(IAmazonS3 s3Client)
     {
         this.S3Client = s3Client;
     }
@@ -37,7 +37,7 @@ public class Function
     /// <param name="evnt"></param>
     /// <param name="context"></param>
     /// <returns></returns>
-    public async Task FunctionHandler(S3Event evnt, ILambdaContext context)
+    public async Task OnEmployeeFileUploadedHandler(S3Event evnt, ILambdaContext context)
     {
         var eventRecords = evnt.Records ?? new List<S3Event.S3EventNotificationRecord>();
         foreach (var record in eventRecords)
@@ -50,7 +50,10 @@ public class Function
 
             try
             {
+                context.Logger.LogInformation($"Input received: {s3Event.Bucket.Name} :: {s3Event.Object.Key}");
+
                 var response = await this.S3Client.GetObjectMetadataAsync(s3Event.Bucket.Name, s3Event.Object.Key);
+                
                 context.Logger.LogInformation(response.Headers.ContentType);
             }
             catch (Exception e)
