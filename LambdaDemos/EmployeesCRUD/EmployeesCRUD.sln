@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeesCRUD.ApiGw", "Empl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employees.Core", "Employees.Core\Employees.Core.csproj", "{D9BCFDC4-AAF7-40AF-B6E1-E8E862168005}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employees.S3Trigger", "Employees.S3Trigger\Employees.S3Trigger.csproj", "{64731548-A48D-444F-928D-47F767DA2A1A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employees.SQSTrigger", "Employees.SQSTrigger\Employees.SQSTrigger.csproj", "{BCE6ED5E-82BF-4218-9386-5958A8EE337D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{D9BCFDC4-AAF7-40AF-B6E1-E8E862168005}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9BCFDC4-AAF7-40AF-B6E1-E8E862168005}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9BCFDC4-AAF7-40AF-B6E1-E8E862168005}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64731548-A48D-444F-928D-47F767DA2A1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64731548-A48D-444F-928D-47F767DA2A1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64731548-A48D-444F-928D-47F767DA2A1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64731548-A48D-444F-928D-47F767DA2A1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCE6ED5E-82BF-4218-9386-5958A8EE337D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCE6ED5E-82BF-4218-9386-5958A8EE337D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCE6ED5E-82BF-4218-9386-5958A8EE337D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCE6ED5E-82BF-4218-9386-5958A8EE337D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
