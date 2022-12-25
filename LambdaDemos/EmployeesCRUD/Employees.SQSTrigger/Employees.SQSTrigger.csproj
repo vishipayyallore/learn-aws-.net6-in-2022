@@ -13,9 +13,6 @@
   <ItemGroup>
     <PackageReference Include="Amazon.Lambda.Core" Version="2.1.0" />
     <PackageReference Include="Amazon.Lambda.Serialization.SystemTextJson" Version="2.3.0" />
-    <PackageReference Include="AWSSDK.DynamoDBv2" Version="3.7.5.8" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Employees.Core\Employees.Core.csproj" />
+    <PackageReference Include="Amazon.Lambda.SQSEvents" Version="2.1.0" />
   </ItemGroup>
 </Project>

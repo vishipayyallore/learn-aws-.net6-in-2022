@@ -53,7 +53,7 @@ public class EmployeesS3Trigger
                 context.Logger.LogInformation($"Input received: {s3Event.Bucket.Name} :: {s3Event.Object.Key}");
 
                 var response = await this.S3Client.GetObjectMetadataAsync(s3Event.Bucket.Name, s3Event.Object.Key);
-                
+
                 context.Logger.LogInformation(response.Headers.ContentType);
             }
             catch (Exception e)
